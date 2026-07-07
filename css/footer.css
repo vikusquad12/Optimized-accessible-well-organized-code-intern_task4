@@ -1,0 +1,95 @@
+/* FOOTER */
+
+.foot {
+    background-color: rgb(53,53,53);
+    color:#dadada;
+}
+
+.foot h2 {
+    text-align:center;
+    padding:10px;
+    font-size:20px;
+}
+
+.footer {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:200px;
+    overflow:hidden;
+}
+
+.footer .f-r {
+    width:50%;
+    display:flex;
+    justify-content:center;
+}
+
+.footer .flink,
+.footer .fbio {
+    width:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.footer ul {
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.footer ul li {
+    list-style:none;
+    font-size:17px;
+    font-weight:600;
+}
+
+.footer .f-sub {
+    width:50%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.f-sub-t {
+    font-size:18px;
+    font-weight:600;
+}
+
+.f-sub-b {
+    margin:15px 0;
+}
+
+.f-sub-b input {
+    height:40px;
+    width:250px;
+    padding:10px 15px;
+    border-radius:20px;
+    border:none;
+    outline:none;
+}
+
+.f-sub-b button {
+    height:40px;
+    width:100px;
+    border:none;
+    border-radius:20px;
+    background:yellow;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.f-sub-logo {
+    display:flex;
+    gap:15px;
+}
+
+.f-sub-l-1 {
+    height:45px;
+    width:45px;
+    border-radius:50%;
+    background-size:cover;
+    background-position:center;
+}

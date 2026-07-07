@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        .wrapper{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 10% auto;
+            background-color: #dadada;
+            width: 50%;
+            padding: 17px;
+            border-radius: 8px;
+            box-shadow: 7px 10px 27px rgba(0,0,0,0.3);
+        }
+
+        .wrapper .col input{
+            font-size: 17px;
+            padding: 8px;
+            border-radius: 8px;
+            outline: none;
+            border: none;
+        }
+        
+        .wrapper .col button{
+            font-size: 17px;
+            padding: 8px;
+            border-radius: 8px;
+            outline: none;
+            border: none;
+        }
+
+        .wrapper .data .txt{
+            font-size: 15px;
+            padding: 8px;
+        }
+
+        .wrapper .data button{
+            font-size: 13px;
+            padding: 8px;
+            border-radius: 8px;
+            outline: none;
+            border: none;
+        }
+
+        .wrapper .data{
+            margin-top: 60px;
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center; */
+            align-items: center;
+            width: 80%;
+        }
+        .wrapper .data .row{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            margin: 20px auto;
+            padding: 3px;
+            border-bottom: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="wrapper">
+        <div class="col">
+            <input type="text" id="in-txt" placeholder="enter your task">
+            <button id="add">Add</button>
+        </div>
+        <div style="margin-top:10px;">
+            <button onclick="setFilter('all')">All</button>
+            <button onclick="setFilter('active')">Active</button>
+            <button onclick="setFilter('completed')">Completed</button>
+        </div>
+        <div class="data" id="show">
+            <!-- <div class="row">
+                <div class="txt" id="display">this is task</div>
+                <button id="remove">Completed</button>
+            </div> -->
+        
+        </div>
+    </div>
+
+<script>
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+let filter = "all";
+
+const input = document.querySelector("#in-txt");
+const addBtn = document.querySelector("#add");
+const show = document.querySelector("#show");
+
+// Save to localStorage
+function saveTasks() {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+// Render UI
+function render() {
+    show.innerHTML = "";
+
+    let filtered = tasks;
+
+    if (filter === "active") {
+        filtered = tasks.filter(t => !t.completed);
+    } else if (filter === "completed") {
+        filtered = tasks.filter(t => t.completed);
+    }
+
+    filtered.forEach(task => {
+        show.innerHTML += `
+            <div class="row" data-id="${task.id}">
+                <div class="txt" style="text-decoration:${task.completed ? 'line-through' : 'none'}">
+                    ${task.text}
+                </div>
+
+                <div>
+                    <button class="complete">${task.completed ? "Undo" : "Complete"}</button>
+                    <button class="edit">Edit</button>
+                    <button class="delete">Delete</button>
+                </div>
+            </div>
+        `;
+    });
+}
+
+// Add task
+addBtn.addEventListener("click", () => {
+    const text = input.value.trim();
+    if (!text) return;
+
+    tasks.push({
+        id: Date.now(),
+        text,
+        completed: false
+    });
+
+    input.value = "";
+    saveTasks();
+    render();
+});
+
+// Event delegation (complete, delete, edit)
+show.addEventListener("click", (e) => {
+    const row = e.target.closest(".row");
+    if (!row) return;
+
+    const id = Number(row.dataset.id);
+
+    // Complete toggle
+    if (e.target.classList.contains("complete")) {
+        tasks = tasks.map(t =>
+            t.id === id ? { ...t, completed: !t.completed } : t
+        );
+    }
+
+    // Delete
+    if (e.target.classList.contains("delete")) {
+        tasks = tasks.filter(t => t.id !== id);
+    }
+
+    // Edit
+    if (e.target.classList.contains("edit")) {
+        const task = tasks.find(t => t.id === id);
+        const newText = prompt("Edit task:", task.text);
+
+        if (newText !== null && newText.trim() !== "") {
+            task.text = newText.trim();
+        }
+    }
+
+    saveTasks();
+    render();
+});
+
+// Optional: filter buttons (you can add in HTML)
+window.setFilter = (type) => {
+    filter = type;
+    render();
+};
+
+// Load on refresh
+window.addEventListener("load", render);
+</script>
+</body>
+</html>

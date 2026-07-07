@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Responsive multi-page website built using HTML, CSS and JavaScript">
+    <meta name="keywords" content="HTML, CSS, JavaScript, Weather App, Todo App">
+    <meta name="author" content="Your Name">
+
+    <link rel="icon" href="img/logo.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <title>Home</title>
+</head>
+<body>
+
+<!-- Header STARTS-->
+<header class="header">
+
+    <div class="header">
+        <div class="logo">
+            <img src="img/logo.webp" alt="Website Logo">
+        </div>
+        <div class="navbar" aria-label="Main navigation">
+            <ul id="nav-ul">
+                <li><a href="">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#service">Service</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#weather">Weather</a></li>
+                <li><a href="todolist.html">Tasks</a></li>
+                <button id="themetoggle">🌙 Dark</button>
+            </ul>
+        </div>
+        
+    </div>
+    <div class="toggle" id="toggle"> <i class="fa-solid fa-bars"></i></div>
+    <div class="ctoggle" id="ctoggle"> X </i></div>
+   
+</header>
+
+
+
+<main class="container">
+
+    <div class="container">
+
+        <button id="openModal">Open Modal</button>
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <span id="closeModal">&times;</span>
+                <h2>Modal Title</h2>
+                <p>This is a modal popup.</p>
+            </div>
+        </div>
+
+        <!-- about page -->
+        <section id="about">
+            <!-- G MAP START -->
+            <div class="map">
+                <h1>Google map</h1>
+                <div class="gmap">
+                    <iframe 
+                        src="https://maps.google.com/?q=23.480912, 84.019447&output=svembed&t=k" 
+                        title="Google map showing location"
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- service page -->
+        <section id="service">
+            <br><br>
+            <h1>Image Slider</h1> <br><br>
+            <div class="imgslider">
+                <button id="prev" aria-label="Previous image"><</button>
+                <img id="slide" src="img/logo.png" loading="lazy" alt="Image slider">
+                <button id="next" aria-label="Next image">></button>
+            </div>
+            <br><br><br><br>
+        </section>
+
+        <!-- contact page -->
+        <section id="contact">
+            <form method="post" action="#">
+                <h1>Contact Form</h1>
+
+                <div class="boxes">
+
+                    <label for="name">Name</label>
+                    <input type="text" placeholder="Enter your name" id="name" required>
+
+                    <label for="e-mail">Email</label>
+                    <input type="email" placeholder="Enter your email" id="e-mail" required>
+
+                    <label for="number">Phone</label>
+                    <input type="text" placeholder="Enter your number" id="number" required>
+
+                    <label for="gender">Gender</label>
+                    <select id="gender" required>
+                        <option selected disabled>Select Gender</option>
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                        <option value="N">Other</option>
+                    </select>
+
+                    <label for="address">Address</label>
+                    <input type="text" placeholder="Enter your address" id="address" required>
+
+                    <label for="alt-number">Alternate Number</label>
+                    <input type="text" placeholder="Enter your number" id="alt-number" required>
+
+                    <label for="message">Message</label>
+                    <textarea 
+                        placeholder="Enter your Address" 
+                        cols="57" 
+                        rows="4" 
+                        id="message">
+                    </textarea>
+
+                    <input type="submit" value="Submit">
+
+                </div>
+            </form>
+        </section>
+
+
+        <br><br>
+        <section id="weather">
+            <form action="" id="w-form" class="w-form">
+                <div class="checkweather">
+                    <div class="txt">
+                        <h2>Wheather Check</h2>
+                    </div>
+                    <div class="col">
+                        <label for="w-search">Search city</label>
+                        <input type="search" placeholder="enter city name" id="w-search">
+                        <button id="w-button" type="submit" aria-label="Search weather">&#128269;</button>
+                    </div>
+                    <div class="info" id="w-info">
+                        <!-- <div class="w-img">
+                            <img src="" alt="">
+                        </div>
+                        <div class="w-content">
+                            <h2>&deg;C</h2>
+                            <h4>Humidity</h4>
+                            <h3>City</h3>
+                        </div> -->
+                    </div>
+                </div>
+            </form>
+        </section>
+
+
+
+        <br><br><br><br>
+        <!-- counter -->
+        <section class="counters">
+            <div class="wrapper">
+                <div>
+                    <i class="fab fa-facebook fa-4x"></i>
+                    <div class="counter" data-target="5000">0</div>
+                    <h3>Followers</h3>
+                </div>
+                <div>
+                    <i class="fab fa-youtube fa-4x"></i>
+                    <div class="counter" data-target="4000">0</div>
+                    <h3>Subscribers</h3>
+                </div>
+                <div>
+                    <i class="fab fa-twitter fa-4x"></i>
+                    <div class="counter" data-target="3000">0</div>
+                    <h3>Followers</h3>
+                </div>
+                <div>
+                    <i class="fab fa-linkedin fa-4x"></i>
+                    <div class="counter" data-target="6000">0</div>
+                    <h3>Connections</h3>
+                </div>
+                
+            </div>
+        </section>
+
+
+    </div>
+
+
+    <!-- sticky back top top -->
+    <div class="btot">
+        <button id="btotop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+    </div>
+
+</main>
+
+<!-- Footer Starts -->
+<footer class="foot-er">
+   
+    <div class="foot">
+
+        <div class="footer">
+           <div class="f-r">
+
+                <div class="flink">
+                    <ul>
+                        <li>Home</li>
+                        <li>About</li>
+                        <li>Service</li>
+                        <li>Contact</li>
+                    </ul>
+                </div>
+                <div class="fbio">
+                    <ul>
+                            <li>Home</li>
+                            <li>About</li>
+                            <li>Service</li>
+                            <li>Contact</li>
+                        </ul>
+                </div>
+
+           </div>
+        
+           <div class="f-sub">
+                <div class="f-sub-t">SignUp to get 15% off</div>
+                <div class="f-sub-b">
+                    <input type="text" placeholder="Your Email Adress">
+                    <button>Subscribe</button>
+                </div>
+                <div class="f-sub-logo">
+                    <div class="f-sub-l-1" id="f-sub-l1"></div>
+                    <div class="f-sub-l-1" id="f-sub-l2"></div>
+                    <div class="f-sub-l-1" id="f-sub-l3"></div>
+                    <div class="f-sub-l-1" id="f-sub-l4"></div>
+                    <div class="f-sub-l-1" id="f-sub-l5"></div>
+                </div>
+           </div>
+
+        </div>
+
+        <hr>
+        <h2>@Copyright claims 2026-2070</h2>
+    </div>
+
+</footer>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

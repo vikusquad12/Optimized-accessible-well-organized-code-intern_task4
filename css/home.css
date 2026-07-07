@@ -1,0 +1,299 @@
+/* ==========================
+   HOME PAGE
+========================== */
+
+/* Container */
+.container{
+    height:800px;
+    overflow-y:scroll;
+}
+
+.container::-webkit-scrollbar{
+    display:none;
+}
+
+/* ==========================
+   MODAL
+========================== */
+
+.modal{
+    display:none;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,0.5);
+    position:fixed;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+}
+
+.modal-content{
+    background:white;
+    padding:20px;
+    border-radius:8px;
+    width:300px;
+    position:relative;
+}
+
+#closeModal{
+    position:absolute;
+    top:10px;
+    right:15px;
+    cursor:pointer;
+    font-size:24px;
+}
+
+/* ==========================
+   IMAGE GALLERY
+========================== */
+
+.gallery{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    margin:21px auto;
+    flex-wrap:wrap;
+    gap:15px;
+    padding:7px;
+}
+
+.gallery .box{
+    height:300px;
+    width:300px;
+    background:#dadada;
+    border-radius:19px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+.gallery .box .img{
+    height:300px;
+    width:300px;
+    border-radius:19px;
+    opacity:.97;
+}
+
+.gallery .box .title{
+    position:absolute;
+    bottom:10px;
+    left:10px;
+    font-weight:700;
+    color:rgb(255,94,94);
+    text-shadow:2px 2px 2px black;
+    font-size:19px;
+}
+
+.gallery .box:hover .title{
+    scale:1.1;
+}
+
+.gallery .box:hover .img{
+    scale:1.03;
+}
+
+/* ==========================
+   CONTACT FORM
+========================== */
+
+form{
+    width:500px;
+    padding:7px;
+    background-color:antiquewhite;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:center;
+    margin:10px auto;
+    border-radius:7px;
+}
+
+form .boxes{
+    height:600px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:center;
+}
+
+form .boxes input{
+    height:40px;
+    width:400px;
+    padding:7px;
+    border-radius:7px;
+    outline:none;
+}
+
+form .boxes select{
+    width:400px;
+    height:40px;
+    border-radius:7px;
+}
+
+form .boxes textarea{
+    padding:7px;
+}
+
+form .boxes input[type="submit"]{
+    margin:19px auto;
+}
+
+/* ==========================
+   GOOGLE MAP
+========================== */
+
+.map{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:center;
+    margin:19px auto;
+}
+
+.map .gmap{
+    width:80%;
+    background:#888;
+    margin:19px auto;
+    border-radius:7px;
+}
+
+/* ==========================
+   IMAGE SLIDER
+========================== */
+
+.imgslider{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:400px;
+    width:max-content;
+    margin:auto;
+    background:#888;
+    border-radius:17px;
+    position:relative;
+}
+
+.imgslider img{
+    height:400px;
+    width:400px;
+    object-fit:cover;
+    border-radius:17px;
+}
+
+.imgslider button{
+    height:30px;
+    width:30px;
+    position:absolute;
+    border-radius:17px;
+    cursor:pointer;
+}
+
+#prev{
+    bottom:20px;
+    left:10px;
+}
+
+#next{
+    bottom:20px;
+    right:10px;
+}
+
+/* ==========================
+   WEATHER
+========================== */
+
+.checkweather{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:17px;
+}
+
+.checkweather .col{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.checkweather input{
+    font-size:17px;
+    padding:11px;
+    border-radius:8px;
+}
+
+.checkweather button{
+    padding:11px;
+    border-radius:8px;
+}
+
+.checkweather .info{
+    display:flex;
+    align-items:center;
+}
+
+.w-img img{
+    height:70px;
+    width:70px;
+}
+
+.w-content{
+    padding:8px;
+}
+
+.w-form{
+    width:500px;
+    background:linear-gradient(
+        135deg,
+        #00b4db,
+        #0083b0
+    );
+    color:white;
+}
+
+/* ==========================
+   BACK TO TOP
+========================== */
+
+.btot{
+    position:sticky;
+    top:90vh;
+    margin-left:auto;
+    width:fit-content;
+}
+
+.btot button{
+    width:50px;
+    height:50px;
+    border:none;
+    border-radius:50%;
+    background:black;
+    color:white;
+    font-size:24px;
+    cursor:pointer;
+}
+
+
+/* ==========================
+   COUNTERS
+========================== */
+
+.counters{
+    background:rgb(76,76,214);
+    color:white;
+    padding:40px 20px;
+}
+
+.counters .wrapper{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+    text-align:center;
+}
+
+.wrapper .counter{
+    font-size:45px;
+}
